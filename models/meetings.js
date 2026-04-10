@@ -11,10 +11,18 @@ const meetingSchema = new Schema({
         ref: "User",
         required: true,
     },
-    candidates: [{
-        type: Schema.Types.ObjectId,
-        ref: "User",
-    }],
+    candidates: [
+        {
+            user: {
+                type: Schema.Types.ObjectId,
+                ref: "User",
+            },
+            isAccepted: {
+                type: Boolean,
+                default: false,
+            },
+        }
+    ],
     reason: {
         type: String,
         required: true,
